@@ -20,10 +20,15 @@ class LadyDeath : Minion {
     let name:Name! = "Lady Death"
     let weapon:Weapon! = Weapon(type: .Bow)
     
-    
 }
 
 class Weapon {
+    
+    enum Action {
+        case Swing, Shoot
+    }
+    
+    private let action: Action!
     
     enum Type {
         case Bow, Sword
@@ -33,6 +38,15 @@ class Weapon {
     
     init(type: Type) {
         self.type = type
+        
+        switch type {
+        case .Bow:
+            self.action = .Shoot
+            
+        case .Sword:
+            self.action = .Swing
+            
+        }
         
     }
     
