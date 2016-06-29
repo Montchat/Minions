@@ -75,14 +75,33 @@ class Minion : Character {
     
     internal func attackCharacter(character:Character, withWeapon weapon: Weapon) -> Damage {
         
+        var damage:Damage!
+        
         guard let type = weapon.type else { return 0 }
         switch type {
-        case .Bow:
-            return 1
-        case .Sword:
-            return 1
             
+        case .Bow:
+            aimAtCharacter(character, completion: { damage = self.shoot() })
+        case .Sword:
+            swingAtCharacter(character)
         }
+        
+        return damage
+        
+    }
+    
+    private func aimAtCharacter(character:Character, completion: () -> ()) {
+        aimAtCharacter(character, completion: completion)
+
+    }
+    
+    private func swingAtCharacter(character:Character) -> Int {
+        return 1
+        
+    }
+    
+    private func shoot() -> Int {
+        return 1
         
     }
     
