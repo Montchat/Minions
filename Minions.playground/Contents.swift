@@ -86,6 +86,8 @@ class Minion : Character {
             swingAtCharacter(character)
         }
         
+        character.hearts = character.hearts - damage
+        
         return damage
         
     }
