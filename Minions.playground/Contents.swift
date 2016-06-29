@@ -4,10 +4,36 @@ import UIKit
 
 class Minion {
     
-    enum {
+    typealias Name = String
+    typealias Hearts = Int
     
-    var health
+    let hearts:Hearts!
     
-    init(
+    init(hearts: Hearts) { self.hearts = hearts
+        
+    }
+    
+}
+
+class LadyDeath : Minion {
+    
+    let name:Name! = "Lady Death"
+    let weapon:Weapon! = Weapon(type: .Bow)
+    
+    
+}
+
+class Weapon {
+    
+    enum Type {
+        case Bow, Sword
+    }
+    
+    let type:Type
+    
+    init(type: Type) {
+        self.type = type
+        
+    }
     
 }
